@@ -1,5 +1,5 @@
-import { EcosimLandingPage } from "@/components/ecosim-landing-page"
+import { AniSafe } from "@/components/anisafe"
 
 export default function Page() {
-  return <EcosimLandingPage />
+  return <AniSafe />
 }
