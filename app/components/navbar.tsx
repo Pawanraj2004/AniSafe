@@ -9,52 +9,29 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-green-700 text-white p-4 sticky top-0 z-50 shadow-lg w-100">
+    <header className="bg-green-700 text-white p-4 sticky top-0 z-50 shadow-md transition-all duration-300">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Brand Name */}
-        <h1 className="text-2xl font-bold flex items-center space-x-2">
+        <h1 className="flex items-center space-x-2">
           <img
             src="/logo 2.png"
             alt="AniSafe Logo"
-            className="i-50 rounded-full"
+            className="h-10 w-10 rounded-full border-2 border-white"
           />
+          <span className="text-xl font-bold tracking-wider">AniSafe</span>
         </h1>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-4">
-          <Link
-            href="/animap"
-            className="hover:bg-green-500 flex items-center px-3 py-2 rounded-md transition duration-300 ease-in-out"
-          >
-            <Globe className="mr-1" size={20} />
-            Home
-          </Link>
-          <Link
-            href="/anidetect"
-            className="hover:bg-green-500 flex items-center px-3 py-2 rounded-md transition duration-300 ease-in-out"
-          >
-            <Brain className="mr-1" size={20} />
-            About
-          </Link>
-          <Link
-            href="/iotsim"
-            className="hover:bg-green-500 flex items-center px-3 py-2 rounded-md transition duration-300 ease-in-out"
-          >
-            <Map className="mr-1" size={20} />
-            Map
-          </Link>
-          <Link
-            href="/3d-model"
-            className="hover:bg-green-500 flex items-center px-3 py-2 rounded-md transition duration-300 ease-in-out"
-          >
-            <Info className="mr-1" size={20} />
-            Information
-          </Link>
+        <nav className="hidden md:flex space-x-6">
+          <NavLink href="/" icon={<Globe size={20} />} text="Home" />
+          <NavLink href="/anidetect" icon={<Brain size={20} />} text="About" />
+          <NavLink href="/iotsim" icon={<Map size={20} />} text="Map" />
+          <NavLink href="/3d-model" icon={<Info size={20} />} text="Information" />
         </nav>
 
         {/* Mobile Menu Button */}
         <Button
-          variant="outline"
+          variant="ghost"
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -64,47 +41,55 @@ export const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden mt-4 bg-green-800 text-white rounded-lg shadow-md">
+        <nav className="md:hidden mt-4 bg-green-800 text-white rounded-lg shadow-lg">
           <ul className="space-y-2 p-4">
-            <li>
-              <Link
-                href="/"
-                className="block hover:bg-green-600 px-4 py-2 rounded-md transition duration-300 ease-in-out"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/anidetect"
-                className="block hover:bg-green-600 px-4 py-2 rounded-md transition duration-300 ease-in-out"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/iotsim"
-                className="block hover:bg-green-600 px-4 py-2 rounded-md transition duration-300 ease-in-out"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Map
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/3d-model"
-                className="block hover:bg-green-600 px-4 py-2 rounded-md transition duration-300 ease-in-out"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Information
-              </Link>
-            </li>
+            <MobileNavLink
+              href="/"
+              text="Home"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <MobileNavLink
+              href="/anidetect"
+              text="About"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <MobileNavLink
+              href="/iotsim"
+              text="Map"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <MobileNavLink
+              href="/3d-model"
+              text="Information"
+              onClick={() => setIsMenuOpen(false)}
+            />
           </ul>
         </nav>
       )}
     </header>
   );
 };
+
+// Reusable NavLink Component for Desktop
+const NavLink = ({ href, icon, text }) => (
+  <Link href={href} legacyBehavior>
+    <a className="flex items-center space-x-1 px-4 py-2 hover:bg-green-600 rounded-lg transition-all duration-300 ease-in-out">
+      {icon}
+      <span>{text}</span>
+    </a>
+  </Link>
+);
+
+// Reusable NavLink Component for Mobile
+const MobileNavLink = ({ href, text, onClick }) => (
+  <li>
+    <Link href={href} legacyBehavior>
+      <a
+        className="block hover:bg-green-600 px-4 py-2 rounded-md transition-all duration-300"
+        onClick={onClick}
+      >
+        {text}
+      </a>
+    </Link>
+  </li>
+);

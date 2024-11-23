@@ -5,6 +5,8 @@ import { Footer } from "@/app/components/footer";
 import { useState, useEffect } from "react";
 import { Button } from "@/app/components/ui/button";
 import { Menu } from "lucide-react";
+import { Features } from "@/app/components/features";
+
 
 export default function AniSafe() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +48,7 @@ export default function AniSafe() {
         <p className="text-center text-lg">
           Protecting wildlife with AI and IoT technologies.
         </p>
+        <Features/>
       </main>
 
       <Footer />
