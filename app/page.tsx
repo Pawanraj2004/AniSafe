@@ -38,9 +38,6 @@ export default function AniSafe() {
       <header className="bg-green-700 text-white p-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <Navbar />
-          <Button variant="outline" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Menu className="h-6 w-6" />
-          </Button>
         </div>
       </header>
 

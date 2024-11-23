@@ -76,3 +76,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.i-50{
+  height: 7rem;
+  width: 7rem;
+  margin-top: 20px;
+}
+
+.w-100{
+  width: 100vw;
+}
