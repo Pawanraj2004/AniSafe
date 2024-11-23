@@ -16,15 +16,14 @@ export const Navbar = () => {
           <img
             src="/logo 2.png"
             alt="AniSafe Logo"
-            className="h-10 w-10 rounded-full border-2 border-white"
+            className="i-50 border-white"
           />
-          <span className="text-xl font-bold tracking-wider">AniSafe</span>
         </h1>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
           <NavLink href="/" icon={<Globe size={20} />} text="Home" />
-          <NavLink href="/anidetect" icon={<Brain size={20} />} text="About" />
+          <NavLink href="/aniquiz" icon={<Brain size={20} />} text="About" />
           <NavLink href="/iotsim" icon={<Map size={20} />} text="Map" />
           <NavLink href="/3d-model" icon={<Info size={20} />} text="Information" />
         </nav>
