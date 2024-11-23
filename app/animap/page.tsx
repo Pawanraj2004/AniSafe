@@ -6,7 +6,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import emailjs from "emailjs-com";
 
-
 export default function AniMap() {
   const [map, setMap] = useState<L.Map | null>(null);
   const [location, setLocation] = useState("");
@@ -31,7 +30,6 @@ export default function AniMap() {
   useEffect(() => {
     if (!map) return;
 
-    // Predefined places with accident frequencies
     const places = [
       { name: "Wildlife Crossing, I-75 Florida, USA", freq: 15, coords: [27.994402, -81.760254] },
       { name: "NH-66, Karnataka, India", freq: 12, coords: [13.0139, 74.7963] },
@@ -42,7 +40,6 @@ export default function AniMap() {
       { name: "E6 Highway, Norway", freq: 5, coords: [68.439, 17.429] },
     ];
 
-    // Add predefined markers
     places.forEach((place) => {
       L.marker(place.coords, { icon: getAccidentIcon(place.freq) })
         .addTo(map)
@@ -79,46 +76,54 @@ export default function AniMap() {
         .addTo(map)
         .bindPopup(`<b>${location}</b><br>New accident reported here.`)
         .openPopup();
-      
+
       // Send email through EmailJS
       sendEmailAlert(location);
     }
   };
-  
-  const sendEmailAlert = (location) => {
+
+  const sendEmailAlert = (location: string) => {
     const templateParams = {
-      location: location,
+      location,
     };
-  
+
     emailjs
       .send(
-        "service_AniMap",  // Your service ID
-        "template_hpfcsqh", // Your template ID
+        "service_sn218zu", // Replace with your actual service ID
+        "template_hpfcsqh", // Replace with your actual template ID
         templateParams,
-        "nAoS04byuvtDjfRn3"  // Your public key
+        "HUN0TN-2cjhJMIDq-" // Replace with your actual public key
       )
       .then(
         (response) => {
-          console.log("Success:", response);
+          console.log("Email sent successfully:", response);
+          alert("Email sent successfully!");
         },
         (error) => {
-          console.error("Error:", error);
+          console.error("Failed to send email:", error);
+          alert("Failed to send email. Please try again.");
         }
       );
   };
-  
 
   const fetchLiveLocation = () => {
     if (navigator.geolocation && map) {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
+        async (position) => {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
+
+          // Fetch address using reverse geocoding
+          const address = await getAddressFromCoordinates(lat, lon);
+
           L.marker([lat, lon], { icon: getAccidentIcon(0, true) })
             .addTo(map)
             .bindPopup(`<b>Your Location</b><br>New accident reported here.`)
             .openPopup();
           map.setView([lat, lon], 10);
+
+          // Send email with the fetched location address
+          sendEmailAlert(address);
         },
         (error) => {
           alert("Unable to fetch location. Please enable location services.");
@@ -127,6 +132,24 @@ export default function AniMap() {
       );
     } else {
       alert("Geolocation is not supported by your browser.");
+    }
+  };
+
+  const getAddressFromCoordinates = async (lat: number, lon: number) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`
+      );
+      const data = await response.json();
+      if (data && data.address) {
+        const { road, suburb, city, state, country } = data.address;
+        return `${road || ""}, ${suburb || ""}, ${city || ""}, ${state || ""}, ${country || ""}`.replace(/, ,/g, ",");
+      } else {
+        return "Unknown Location";
+      }
+    } catch (error) {
+      console.error("Error fetching address:", error);
+      return "Unknown Location";
     }
   };
 
@@ -149,9 +172,8 @@ export default function AniMap() {
   };
 
   return (
-    
     <div className="min-h-screen bg-gray-100 p-4">
-        <Navbar />
+      <Navbar />
       <h1 className="text-2xl font-bold text-center mb-4">AniMap - Stray Animal Accident Map</h1>
       <div className="flex justify-center gap-4 mb-4">
         <input
