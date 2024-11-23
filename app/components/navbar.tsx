@@ -23,7 +23,7 @@ export const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4">
           <Link
-            href="/"
+            href="/animap"
             className="hover:bg-green-500 flex items-center px-3 py-2 rounded-md transition duration-300 ease-in-out"
           >
             <Globe className="mr-1" size={20} />
