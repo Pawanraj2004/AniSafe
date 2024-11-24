@@ -6,17 +6,25 @@ import { Footer } from "@/app/components/footer";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
 
-export default function AnimalSafetyNews() {
-  const [articles, setArticles] = useState<any[]>([]);
-  const [displayedArticles, setDisplayedArticles] = useState<any[]>([]); // To store the displayed articles
-  const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(6); // To keep track of how many articles are shown
+interface Article {
+  title: string;
+  description: string;
+  publishedAt: string;
+  source: { name: string };
+  url: string;
+  urlToImage?: string;
+}
 
-  // Replace with your own NewsAPI key
+export default function AnimalSafetyNews() {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [displayedArticles, setDisplayedArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(6);
+
   const API_KEY = "d9f841f069bd46c2a9e1ae2ad9057b40";
   const API_URL = `https://newsapi.org/v2/everything?q=animal%20road%20safety&sortBy=publishedAt&language=en&apiKey=${API_KEY}`;
 
-  const fallbackArticles = [
+  const fallbackArticles: Article[] = [
     {
       title: "How to Improve Road Safety for Animals",
       description:
@@ -54,11 +62,11 @@ export default function AnimalSafetyNews() {
         if (data.articles && data.articles.length > 0) {
           setArticles(data.articles);
         } else {
-          setArticles(fallbackArticles); // Use fallback articles if no API results
+          setArticles(fallbackArticles);
         }
       } catch (error) {
         console.error("Error fetching news:", error);
-        setArticles(fallbackArticles); // Use fallback articles in case of an error
+        setArticles(fallbackArticles);
       } finally {
         setLoading(false);
       }
@@ -73,7 +81,6 @@ export default function AnimalSafetyNews() {
     setCurrentIndex(nextIndex);
   };
 
-  // Initially display only the first 6 articles
   useEffect(() => {
     setDisplayedArticles(articles.slice(0, 6));
   }, [articles]);
@@ -109,14 +116,13 @@ export default function AnimalSafetyNews() {
                         {article.description || "No description available."}
                       </p>
                       <a
-  href={article.url}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full mt-4 bg-[#38ddba] text-[#163544] hover:bg-[#21988b] rounded-lg shadow-md transition-colors px-4 py-2 text-center block"
->
-  Read More
-</a>
-
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full mt-4 bg-[#38ddba] text-[#163544] hover:bg-[#21988b] rounded-lg shadow-md transition-colors px-4 py-2 text-center block"
+                      >
+                        Read More
+                      </a>
                     </CardContent>
                   </Card>
                 ))}
