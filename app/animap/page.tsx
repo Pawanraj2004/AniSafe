@@ -78,35 +78,32 @@ export default function AniMap() {
         .addTo(map)
         .bindPopup(`<b>${location}</b><br>New accident reported here.`)
         .openPopup();
-
-      // Send email through EmailJS
-      sendEmailAlert(location);
     }
   };
 
-  const sendEmailAlert = (location: string) => {
-    const templateParams = {
-      location,
-    };
+  // const sendEmailAlert = (location: string) => {
+  //   const templateParams = {
+  //     location,
+  //   };
 
-    emailjs
-      .send(
-        "service_sn218zu", // Replace with your actual service ID
-        "template_hpfcsqh", // Replace with your actual template ID
-        templateParams,
-        "iZPqs97WoabQZdscB" // Replace with your actual public key
-      )
-      .then(
-        (response) => {
-          console.log("Email sent successfully:", response);
-          alert("Email sent successfully!");
-        },
-        (error) => {
-          console.error("Failed to send email:", error);
-          alert("Failed to send email. Please try again.");
-        }
-      );
-  };
+  //   emailjs
+  //     .send(
+  //       "service_sn218zu", // Replace with your actual service ID
+  //       "template_hpfcsqh", // Replace with your actual template ID
+  //       templateParams,
+  //       "iZPqs97WoabQZdscB" // Replace with your actual public key
+  //     )
+  //     .then(
+  //       (response) => {
+  //         console.log("Email sent successfully:", response);
+  //         alert("Email sent successfully!");
+  //       },
+  //       (error) => {
+  //         console.error("Failed to send email:", error);
+  //         alert("Failed to send email. Please try again.");
+  //       }
+  //     );
+  // };
 
   const fetchLiveLocation = () => {
     if (navigator.geolocation && map) {
@@ -125,7 +122,7 @@ export default function AniMap() {
           map.setView([lat, lon], 10);
 
           // Send email with the fetched location address
-          sendEmailAlert(address);
+          // sendEmailAlert(address);
         },
         (error) => {
           alert("Unable to fetch location. Please enable location services.");
