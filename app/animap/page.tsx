@@ -4,7 +4,7 @@ import { Footer } from "@/app/components/footer";
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 
 export default function AniMap() {
   const [map, setMap] = useState<L.Map | null>(null);
@@ -113,7 +113,7 @@ export default function AniMap() {
           const lon = position.coords.longitude;
 
           // Fetch address using reverse geocoding
-          const address = await getAddressFromCoordinates(lat, lon);
+          // const address = await getAddressFromCoordinates(lat, lon);
 
           L.marker([lat, lon], { icon: getAccidentIcon(0, true) })
             .addTo(map)
