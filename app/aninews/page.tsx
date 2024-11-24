@@ -108,16 +108,15 @@ export default function AnimalSafetyNews() {
                       <p className="text-sm text-[#21988b] mb-4">
                         {article.description || "No description available."}
                       </p>
-                      <Button
-                        as="a"
-                        href={article.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        variant="primary"
-                        className="w-full mt-4 bg-[#38ddba] text-[#163544] hover:bg-[#21988b] rounded-lg shadow-md transition-colors"
-                      >
-                        Read More
-                      </Button>
+                      <a
+  href={article.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full mt-4 bg-[#38ddba] text-[#163544] hover:bg-[#21988b] rounded-lg shadow-md transition-colors px-4 py-2 text-center block"
+>
+  Read More
+</a>
+
                     </CardContent>
                   </Card>
                 ))}
