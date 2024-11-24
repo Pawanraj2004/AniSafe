@@ -134,23 +134,23 @@ export default function AniMap() {
     }
   };
 
-  const getAddressFromCoordinates = async (lat: number, lon: number) => {
-    try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`
-      );
-      const data = await response.json();
-      if (data && data.address) {
-        const { road, suburb, city, state, country } = data.address;
-        return `${road || ""}, ${suburb || ""}, ${city || ""}, ${state || ""}, ${country || ""}`.replace(/, ,/g, ",");
-      } else {
-        return "Unknown Location";
-      }
-    } catch (error) {
-      console.error("Error fetching address:", error);
-      return "Unknown Location";
-    }
-  };
+  // const getAddressFromCoordinates = async (lat: number, lon: number) => {
+  //   try {
+  //     const response = await fetch(
+  //       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`
+  //     );
+  //     const data = await response.json();
+  //     if (data && data.address) {
+  //       const { road, suburb, city, state, country } = data.address;
+  //       return `${road || ""}, ${suburb || ""}, ${city || ""}, ${state || ""}, ${country || ""}`.replace(/, ,/g, ",");
+  //     } else {
+  //       return "Unknown Location";
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching address:", error);
+  //     return "Unknown Location";
+  //   }
+  // };
 
   const getCoordsByPlaceName = async (name: string): Promise<[number, number] | null> => {
     const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(name)}`;
