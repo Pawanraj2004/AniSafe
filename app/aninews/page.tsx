@@ -21,7 +21,7 @@ export default function AnimalSafetyNews() {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(6);
 
-  const API_KEY = "d9f841f069bd46c2a9e1ae2ad9057b40";
+  const API_KEY = "API_KEY";
   const API_URL = `https://newsapi.org/v2/everything?q=animal%20road%20safety&sortBy=publishedAt&language=en&apiKey=${API_KEY}`;
 
   const fallbackArticles: Article[] = [

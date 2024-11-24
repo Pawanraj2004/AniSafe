@@ -88,8 +88,8 @@ export default function AniMap() {
 
   //   emailjs
   //     .send(
-  //       "service_sn218zu", // Replace with your actual service ID
-  //       "template_hpfcsqh", // Replace with your actual template ID
+  //       service_id", // Replace with your actual service ID
+  //       "template_id", // Replace with your actual template ID
   //       templateParams,
   //       "iZPqs97WoabQZdscB" // Replace with your actual public key
   //     )
