@@ -3,7 +3,7 @@
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/components/footer";
 import { useEffect } from "react";
-// import { Features } from "@/app/components/features";
+import { Features } from "@/app/components/features";
 
 export default function AniSafe() {
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function AniSafe() {
         <p className="text-center text-lg mb-12 max-w-2xl mx-auto">
           Protecting wildlife with AI and IoT technologies for a safer environment.
         </p>
-        {/* <Features /> */}
+        <Features />
       </main>
       <Footer />
     </div>
