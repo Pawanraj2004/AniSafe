@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/components/footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { ModelViewer } from "@/app/components/model";
+
 
 export default function IotSim() {
   
