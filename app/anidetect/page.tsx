@@ -69,30 +69,32 @@ export default function AniDetect() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-100 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-b from-[#38ddba] to-[#21988b]">
       <Navbar />
       <main className="container mx-auto mt-8 px-4">
-        <section id="teachable-machine" className="mb-16">
-          <h2 className="text-3xl font-bold mb-4">Animal Detection</h2>
-          <Card>
-            <CardHeader>
+        <section id="teachable-machine" className="mb-20">
+          <h2 className="text-3xl font-bold mb-4 text-[#163544]">Animal Detection</h2>
+          <Card className="bg-white shadow-lg rounded-lg">
+            <CardHeader className="bg-[#38ddba] text-[#163544]">
               <CardTitle>Teachable Machine Integration</CardTitle>
               <CardDescription>Use AI to detect animals</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button onClick={initTeachableMachine}>Start Detection</Button>
+              <Button onClick={initTeachableMachine} className="mt-5 bg-[#38ddba] text-[#163544] hover:bg-[#21988b]">
+                Start Detection
+              </Button>
               <div
                 ref={containerRef}
                 id="webcam-container"
-                className="mt-4 border rounded-lg overflow-hidden"
+                className="mt-4 border border-[#21988b] rounded-lg overflow-hidden"
               ></div>
               <div
                 ref={labelContainerRef}
                 id="label-container"
-                className="mt-4 text-gray-700"
+                className="mt-4 text-[#163544]"
               >
                 {predictions.map((p, index) => (
-                  <div key={index} className="p-2 bg-gray-100 rounded mb-2">
+                  <div key={index} className="p-2 bg-[#f0fdf4] rounded mb-2 text-[#163544]">
                     {p}
                   </div>
                 ))}

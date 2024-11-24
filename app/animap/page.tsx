@@ -172,25 +172,25 @@ export default function AniMap() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="min-h-screen bg-green-50 p-4">
       <Navbar />
-      <h1 className="text-2xl font-bold text-center mb-4">AniMap - Stray Animal Accident Map</h1>
+      <h1 className="mt-5 mb-5 text-2xl font-bold text-center mb-4 text-green-700">AniMap - Stray Animal Accident Map</h1>
       <div className="flex justify-center gap-4 mb-4">
         <input
           type="text"
           placeholder="Enter Accident Location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="p-2 border rounded"
+          className="p-2 border rounded bg-green-200 text-green-700"
         />
-        <button onClick={reportAccident} className="p-2 bg-blue-500 text-white rounded">
+        <button onClick={reportAccident} className="p-2 bg-green-500 text-white rounded">
           Report Accident
         </button>
-        <button onClick={fetchLiveLocation} className="p-2 bg-green-500 text-white rounded">
+        <button onClick={fetchLiveLocation} className="p-2 bg-yellow-500 text-white rounded">
           Fetch Live Location
         </button>
       </div>
-      <div id="map" className="h-96 w-full mx-auto border rounded shadow"></div>
+      <div id="map" className="h-96 w-full mb-5  mx-auto border rounded shadow"></div>
       <Footer />
     </div>
   );
