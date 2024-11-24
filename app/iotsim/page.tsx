@@ -58,9 +58,6 @@ export default function IotSim() {
           </Card>
         </section>
       </main>
-      
-      {/* Model Viewer Section */}
-      <ModelViewer />
 
       {/* Footer */}
       <Footer />

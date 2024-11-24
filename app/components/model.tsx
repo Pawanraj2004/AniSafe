@@ -10,7 +10,7 @@ export const ModelViewer = () => {
           <Card>
             <CardHeader>
               <CardTitle>Interactive 3D Model</CardTitle>
-              <CardDescription>Explore the 3D model embedded below</CardDescription>
+              <CardDescription>Explore the 3D model embedded below which showcase the OverBridge and the usage of speed breakers near Animal Crossing/Sightings.</CardDescription>
             </CardHeader>
             <CardContent>
               <div
