@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/components/footer";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Features } from "@/app/components/features";
 
 export default function AniSafe() {

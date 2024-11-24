@@ -1,7 +1,5 @@
 "use client";
 
-import { Navbar } from "@/app/components/navbar";
-import { Footer } from "@/app/components/footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
 
 export const ModelViewer = () => {

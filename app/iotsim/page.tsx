@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/components/footer";
-import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Menu } from "lucide-react";
 import { ModelViewer } from "@/app/components/model";
 
 export default function IotSim() {
