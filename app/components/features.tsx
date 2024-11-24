@@ -10,24 +10,20 @@ export const Features = () => {
               description: "Utilize AI models to detect animals on roads and enhance driver awareness.",
             },
             {
-              title: "3D IoT Sensor Model",
-              description: "Build IoT sensors using ESP32 Cam and IR sensors for animal detection, even at night.",
-            },
-            {
               title: "IoT Sensor Simulation",
               description: "Simulate IoT sensors for detecting animals around roads using advanced technology.",
             },
             {
+              title: "Infrastructure",
+              description: "3d model of infrastructure showcasing the use of OverBridge and use of speed breakers near animal sightings",
+            },
+            {
+              title: "Accident Hotspot Map with Live Location & Alerts",
+              description: "View a map of high animal accident zones to raise awareness and plan safer routes + Fetch live locations and report new animal accidents to notify authorities instantly.",
+            },
+            {
               title: "Interactive Quiz",
               description: "Educate children and youth on road safety and animal protection through engaging quizzes.",
-            },
-            {
-              title: "Accident Hotspot Map",
-              description: "View a map of high animal accident zones to raise awareness and plan safer routes.",
-            },
-            {
-              title: "Live Location & Alerts",
-              description: "Fetch live locations and report new animal accidents to notify authorities instantly.",
             },
             {
               title: "News Feed",
