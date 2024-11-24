@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app
 import { ModelViewer } from "@/app/components/model";
 
 export default function IotSim() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
 
   // Smooth scrolling for anchor links
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function IotSim() {
       <main className="container mx-auto mt-8 px-4">
         {/* IoT Simulation Section */}
         <section id="information" className="mb-16">
-          <h2 className="text-4xl font-extrabold text-center text-[#163544] mb-6">AniSense</h2>
+          <h2 className="text-4xl font-extrabold text-center text-[#ffffff] mb-6">AniSense</h2>
           <Card className="bg-[#38ddba] border-none shadow-lg hover:bg-[#21988b] transition-all duration-300 ease-in-out">
             <CardHeader className="bg-[#163544] text-white">
               <CardTitle className="text-xl font-semibold">IoT Simulation</CardTitle>
