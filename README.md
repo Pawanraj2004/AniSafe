@@ -1,5 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AniSafe
+"Safeguarding Wildlife, One Road at a Time" A one step solution for solving the challenge of animal road safety by using AI, IoT and 3D-Models of infrastructure.
+## The problem AniSafe solves
+Road accidents involving animals pose a significant risk to both wildlife and human life. 
+<br>These accidents not only lead to the loss of animal lives but can also result in severe injuries or fatalities for humans, as well as damage to vehicles.
+<br> **Key problems addressed include :**
+- Lack of awareness about road safety concerning animals, leading to frequent animal-vehicle collisions.
+- Insufficient infrastructure to detect and warn about animals crossing the road, especially at night or in remote areas.
+- Difficulty in tracking high-incident zones of animal accidents and taking preventive measures.
+- Limited education among the public, especially children and youth, regarding road safety and animal protection.<br>
+AniSafe provides a comprehensive solution by using AI, IoT, and interactive education tools to prevent accidents, raise awareness, and engage communities in animal safety initiatives.
 
+## Challenges we ran into
+**1.AI Model Training:**
+Collecting and annotating sufficient data for accurate animal detection in diverse lighting conditions.<br>
+**2.Night-Time Detection:**
+Ensuring reliable detection during low visibility with the use of IR sensors.<br>
+**3.Real-Time Alerting:**
+Implementing a system to fetch live locations and promptly notify authorities about accidents.<br>
+**4.Interactive Features:**
+Creating engaging quizzes for youth education and an intuitive map interface for reporting and tracking accident hotspots.<br>
+**5.Hardware Simulation:**
+Designing and simulating IoT sensors with realistic accuracy for practical implementation<br>
 ## Getting Started
 
 First, run the development server:
